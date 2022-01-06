@@ -1,15 +1,11 @@
-provider "azurerm" {
-   features {}
-}
-
 terraform {
-    required_version = "~> 1.1.2"
-    required_providers {
-        azurerm = {
-            source  = "hashicorp/azurerm"
-            version = "~> 2.90"
-        }
+  required_version = "~> 1.1.2"
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 2.90"
     }
+  }
 
   backend "azurerm" {
     resource_group_name  = "rg-hello-azure-tf"
@@ -17,6 +13,10 @@ terraform {
     container_name       = "terraform-state"
     key                  = "terraform.tfstate"
   }
+}
+
+provider "azurerm" {
+  features {}
 }
 
 resource "azurerm_resource_group" "rg-hello-azure" {
