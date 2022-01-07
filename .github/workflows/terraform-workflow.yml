@@ -23,7 +23,6 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Formatter
-        id: fmt
         run: terraform fmt -recursive
 
       - name: Terraform Format
