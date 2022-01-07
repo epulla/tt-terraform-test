@@ -1,1 +1,2 @@
-console.log("Hello world from new workflow");
+console.log("Hello world");
+console.log("Hola");
