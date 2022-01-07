@@ -1,9 +1,6 @@
 name: 'Terraform'
 
 on:
-  push:
-    branches:  
-    - main
   pull_request:
 
 jobs:
@@ -32,7 +29,7 @@ jobs:
 
       - name: Terraform Validate
         id: validate
-        run: terraform validate -no-color
+        run: terraform validate
 
       - name: Terraform Plan
         id: plan
