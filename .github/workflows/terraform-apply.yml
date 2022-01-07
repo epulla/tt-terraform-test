@@ -1,41 +1,41 @@
-name: Terraform Apply
+# name: Terraform Apply
 
-on:
-  push:
-    branches: [ main ]
+# on:
+#   push:
+#     branches: [ main ]
 
-jobs:
-  terraform:
-    runs-on: ubuntu-latest
+# jobs:
+#   terraform:
+#     runs-on: ubuntu-latest
 
-    env:
-      ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}}
-      ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
-      ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
-      ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
+#     env:
+#       ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}}
+#       ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
+#       ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
+#       ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
 
-    steps:
-      - uses: actions/checkout@v2
+#     steps:
+#       - uses: actions/checkout@v2
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
+#       - name: Setup Terraform
+#         uses: hashicorp/setup-terraform@v1
 
-      - name: Terraform Formatter
-        id: fmt
-        run: terraform fmt -recursive
+#       - name: Terraform Formatter
+#         id: fmt
+#         run: terraform fmt -recursive
 
-      - name: Terraform Init
-        id: init
-        run: terraform init
+#       - name: Terraform Init
+#         id: init
+#         run: terraform init
 
-      - name: Terraform Validate
-        id: validate
-        run: terraform validate
+#       - name: Terraform Validate
+#         id: validate
+#         run: terraform validate
 
-      - name: Terraform Plan
-        id: plan
-        run: terraform plan
+#       - name: Terraform Plan
+#         id: plan
+#         run: terraform plan
 
-      - name: Terraform Apply
-        id: apply
-        run: terraform apply -auto-approve
+#       - name: Terraform Apply
+#         id: apply
+#         run: terraform apply -auto-approve
